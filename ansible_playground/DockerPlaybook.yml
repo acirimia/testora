@@ -1,0 +1,12 @@
+---
+- hosts: vm3.proiect.sprint1
+  gather_facts: yes
+
+  roles:
+    - Dependencies
+    - MainInstall
+    - ServiceUser
+    - Firewalld
+    - PrivateRegistry
+    - Nexus
+    - Tomcat

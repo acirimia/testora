@@ -1,0 +1,15 @@
+---
+- name: Pull tomcat image
+  docker_image:
+    name: tomcat
+    source: pull
+
+- name: Run tomcat container
+  command: >
+    docker run -dit \
+    --publish 8080:8080 \
+    --mount source=/shared_folder,target \
+    --restart=always \
+    --name tomcat \
+    tomcat
+  ignore_errors: yes

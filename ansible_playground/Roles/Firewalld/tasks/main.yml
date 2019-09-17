@@ -1,0 +1,39 @@
+---
+- name: Install Firewalld
+  yum:
+    name: firewalld
+    state: latest
+
+- name: Start and Enable the Firewalld Service
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: Allow connection from 80/tcp
+  firewalld:
+    port: 80/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+
+- name: Allow connection from 8080/tcp
+  firewalld:
+    port: 8080/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+
+- name: Allow connection from 8081/tcp
+  firewalld:
+    port: 8081/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+
+- name: Allow connection from 5000/tcp
+  firewalld:
+    port: 5000/tcp
+    state: enabled
+    permanent: true
+    immediate: true
